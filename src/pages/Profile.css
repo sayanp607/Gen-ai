@@ -1,0 +1,103 @@
+.profile-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-container h2 {
+  font-size: 28px;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.link-card {
+  background-color: #f9f9ff;
+  border: 1px solid #d0d0f0;
+  border-left: 6px solid #4c6ef5;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 100, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.link-card:hover {
+  transform: scale(1.01);
+}
+
+.link-card p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.link-card strong {
+  color: #222;
+}
+
+.link-card a {
+  color: #007bff;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.link-card a:hover {
+  text-decoration: underline;
+}
+
+.link-card input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 12px;
+  margin: 10px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+.link-card input:focus {
+  border-color: #4c6ef5;
+  outline: none;
+}
+
+.link-card button {
+  background-color: #4c6ef5;
+  color: white;
+  padding: 8px 14px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.link-card button:hover {
+  background-color: #3b5bdb;
+}
+
+.link-card button:last-of-type {
+  background-color: #f44336;
+}
+
+.link-card button:last-of-type:hover {
+  background-color: #d32f2f;
+}
+
+@media (max-width: 600px) {
+  .link-card {
+    padding: 1rem;
+  }
+
+  .link-card input[type="text"] {
+    width: 100%;
+  }
+
+  .link-card button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
