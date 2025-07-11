@@ -158,6 +158,40 @@ const Home = () => {
       <p className="loading-text">Generating your website... Please wait a few seconds</p>
     </div>
   );
+  const handleVoiceInput = () => {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    toast.error("❌ Voice input not supported in this browser. Please try in Chrome.");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  recognition.start();
+
+  recognition.onstart = () => {
+    toast.info("🎙️ Listening... (Chrome recommended)");
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    setPrompt(prev => `${prev} ${transcript}`);
+    toast.success("✅ Voice captured!");
+  };
+
+  recognition.onerror = (event) => {
+    toast.error(`❌ Error: ${event.error}`);
+  };
+
+  recognition.onend = () => {
+    toast.info("🛑 Voice input ended.");
+  };
+};
+
 
   return (
     <>
@@ -180,12 +214,19 @@ const Home = () => {
       {/* Main Generator UI */}
       <div className="home-container">
         <h1>✨ GenAI Website Builder</h1>
-        <textarea
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Describe your website idea..."
-          className="prompt-input"
-        />
+        <div className="voice-input-container">
+  <textarea
+    value={prompt}
+    onChange={(e) => setPrompt(e.target.value)}
+    placeholder="Describe your website idea..."
+    className="prompt-input"
+  />
+  <div className="mic-wrapper">
+    <button onClick={handleVoiceInput} className="mic-btn">🎤 Speak</button>
+    <p className="mic-hint">* Voice input works best in Chrome browser</p>
+  </div>
+</div>
+
         <button onClick={handleGenerate} className="generate-btn">Generate</button>
 
         {generatedCode && (
