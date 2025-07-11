@@ -1,3 +1,8 @@
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -316,6 +321,14 @@ body {
   .header-left {
   order: 1;
   margin-left: -20px !important;
+  }
+  .voice-input-container{
+    margin-right: 10px;
+  margin-left: -10px;
+  }
+  .generate-btn{
+    margin-left: -10px;
+  }
 }
 
 
@@ -330,6 +343,7 @@ body {
   align-items: stretch;
   gap: 8px;
   margin-top: 16px;
+  
 }
 
 .prompt-input {
